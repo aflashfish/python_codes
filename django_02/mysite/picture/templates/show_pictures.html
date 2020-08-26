@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="row">
+            {% for picture in pictures %}
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="{{ picture.image.url }}" alt="" style="width: 242px; height: 200px" >
+                    <div class="caption">
+                        <h3>{{ picture.title }}</h3>
+                        <p><a href="{% url 'picture:pic_detail' picture.id %}" class="btn btn-primary" role="button">查看详情</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        {% for article in articles %}
+            <li>{{ article.title }} | {{ article.public_time }}</li>
+        {% endfor %}
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+{% endblock %}

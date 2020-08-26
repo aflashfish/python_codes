@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <!-- 博客详情布局 -->
+    <div class="col-md-8">
+        <h2 style="margin-bottom: 10px">{{ article.title }}</h2>
+        <h6>
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;{{ article.author }}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;&nbsp;{{ article.public_time }}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            评论：{{ article.comment_num }}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;&nbsp;{{ article.read_num }}
+        </h6>
+        <hr>
+        <h5>
+            {%autoescape off%}
+            {{ article.body }}
+            {%endautoescape%}
+        </h5>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+
+{% endblock %}

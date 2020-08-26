@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block body %}
+    这里添加文章
+    <form action="" method="post">
+        <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+            <div>
+                标题:<input type="text" name="title" style="width: 200px">
+            </div>
+            <hr>
+            <div>
+             内容:
+            </div>
+        <textarea type="text" name="body" style="width: 630px"></textarea>
+        <div>
+            <input type="submit" value="提交">
+        </div>
+    </form>
+{% endblock %}

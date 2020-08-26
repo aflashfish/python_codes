@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <div class="all_content">
+        <div class="row">
+            <!-- 预留空位 -->
+        <div class="col-md-1"></div>
+            <!-- 文章列表 -->
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <!-- content title -->
+                <div class="panel-heading"><a>置顶文章</a></div>
+                <!-- content info -->
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-2">作者：张三</div>
+                        <div class="col-md-4">2020-07-04 16:21:00</div>
+                        <div class="col-md-2">分类 mysql</div>
+                        <div class="col-md-2">阅读量 120</div>
+                        <div class="col-md-2">评论数 12</div>
+                    </div>
+                </div>
+                <!-- 摘要 -->
+                <div class="panel-body">
+                文章摘要
+                </div>
+                <!-- 标签 -->
+                <div class="panel-body">
+                    <span class="label label-success">标签1</span>
+                    <span class="label label-success">标签2</span>
+                </div>
+            </div>
+
+            {% for article in articles %}
+            <div class="panel panel-default">
+                <!-- content title -->
+                <div class="panel-heading"><a href="{% url 'article:article_detail' article.id %}">{{ article.title }}</a></div>
+                <!-- content info -->
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-2">作者：{{ article.author }}</div>
+                        <div class="col-md-4">{{ article.public_time }}</div>
+                        <div class="col-md-2">分类 {{ article.part }}</div>
+                        <div class="col-md-2">阅读量：{{ article.read_num }}</div>
+                        <div class="col-md-2">评论数：{{ article.comment_num }}</div>
+                    </div>
+                </div>
+                <!-- 摘要 -->
+                <div class="panel-body">
+                {{ article.body }}
+                </div>
+                <!-- 标签 -->
+                <div class="panel-body">
+                    <span class="label label-success">标签1</span>
+                    <span class="label label-success">标签2</span>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% for article in articles2 %}
+            <div class="panel panel-default">
+                <!-- content title -->
+                <div class="panel-heading"><a href="{% url 'article:article2_detail' article.id %}">{{ article.title }}</a></div>
+                <!-- content info -->
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-2">作者：{{ article.author }}</div>
+                        <div class="col-md-4">{{ article.public_time }}</div>
+                        <div class="col-md-2">分类 {{ article.part }}</div>
+                        <div class="col-md-2">阅读量：{{ article.read_num }}</div>
+                        <div class="col-md-2">评论数：{{ article.comment_num }}</div>
+                    </div>
+                </div>
+                <!-- 摘要 -->
+                <div class="panel-body">
+                {{ article.body |striptags|safe|truncatechars:100|linebreaks }}
+                </div>
+                <!-- 标签 -->
+                <div class="panel-body">
+                    <span class="label label-success">标签1</span>
+                    <span class="label label-success">标签2</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-md-3">
+            <!-- 个人信息页 -->
+            <div class="panel panel-default">
+                <div class="panel-body">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;博主个人信息
+                    <hr>
+                    <div>
+                        <p><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>&nbsp;&nbsp;网名：Afleshfish | 小菜鱼</p>
+                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;职业：python开发工程师</p>
+                        <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>&nbsp;&nbsp;现居：广东省东莞市</p>
+                        <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;Email：335877861@qq.com</p>
+                        <p><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>&nbsp;&nbsp;QQ：335877861</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 最热文章 -->
+            <div class="panel panel-default">
+                <div class="panel-body">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;最热文章
+                    <hr>
+                    <ul class="list-group">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 最新更新 -->
+            <div class="panel panel-default">
+                <div class="panel-body">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;最新文章
+                    <hr>
+                    <ul class="list-group">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 友情链接 -->
+            <div class="panel panel-default">
+                <div class="panel-body">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;友情链接
+                    <hr>
+                    <!-- 链接类 -->
+                    <a href="#">链接1</a>
+                    <a href="#">链接2</a>
+                    <a href="#">链接3</a>
+                    <a href="#">链接4</a>
+                </div>
+            </div>
+        </div>
+            <!-- 预留空位 -->
+        <div class="col-md-2"></div>
+        </div>
+    </div>
+{% endblock %}

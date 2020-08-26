@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+    用户个人信息:
+    <p>个人id：{{ user.id }}</p>
+    <p>用户名：{{ user.username }}</p>
+    <p>用户邮箱：{{ user.email }}</p>
+    <p><a href="/admin">后台管理</a></p>
+</div>
+<div class="col-md-2"></div>
+</div>
+
+{% endblock %}
